@@ -13,9 +13,13 @@ BridgeStanLogDensityProblem(stan_file::AbstractString, data::AbstractString; kwa
 )
 
 
-LogDensityProblems.dimension(what::BridgeStanLogDensityProblem) = BridgeStan.param_unc_num(what.posterior)
+LogDensityProblems.dimension(what::BridgeStanLogDensityProblem) = Int64(BridgeStan.param_unc_num(what.posterior))
 LogDensityProblems.capabilities(::Type{<:BridgeStanLogDensityProblem}) = LogDensityProblems.LogDensityOrder{2}()
-LogDensityProblems.logdensity(what::BridgeStanLogDensityProblem, x) = BridgeStan.log_density(what.posterior, x)
+LogDensityProblems.logdensity(what::BridgeStanLogDensityProblem, x) = try 
+    BridgeStan.log_density(what.posterior, x)
+catch e
+    -Inf
+end
 LogDensityProblems.logdensity_and_gradient(what::BridgeStanLogDensityProblem, x) = try 
     BridgeStan.log_density_gradient(what.posterior, x)
 catch e
