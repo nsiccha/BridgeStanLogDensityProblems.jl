@@ -4,8 +4,8 @@ export BridgeStanLogDensityProblem
 
 using BridgeStan, LogDensityProblems
 
-struct BridgeStanLogDensityProblem{T}
-    posterior::T
+struct BridgeStanLogDensityProblem
+    posterior::StanModel
 end
 
 BridgeStanLogDensityProblem(stan_file::AbstractString, data::AbstractString; kwargs...) = BridgeStanLogDensityProblem(
