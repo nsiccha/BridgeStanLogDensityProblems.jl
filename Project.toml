@@ -1,0 +1,15 @@
+name = "BridgeStanLogDensityProblems"
+uuid = "3cf63673-be37-4c87-aeeb-5289704d4abf"
+authors = ["Nikolas Siccha <nikolassiccha@gmail.com> and contributors"]
+version = "0.1.0"
+
+
+[deps]
+BridgeStan = "c88b6f0a-829e-4b0b-94b7-f06ab5908f5a"
+LogDensityProblems = "6fdf6af0-433a-55f7-b3ed-c6c6e0b8df7c"
+
+[compat]
+julia = "1"
+
+[extensions]
+PosteriorDB = []
