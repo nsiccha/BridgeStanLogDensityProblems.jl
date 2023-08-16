@@ -1,5 +1,7 @@
 module BridgeStanLogDensityProblems
 
+export BridgeStanLogDensityProblem
+
 using BridgeStan, LogDensityProblems
 
 struct BridgeStanLogDensityProblem{T}
